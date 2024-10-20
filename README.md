@@ -1,14 +1,56 @@
-# Chain Index
 
-Chain Index is a Python library for managing and organizing AI language model chains. It provides a simple interface to store, retrieve, and manage chains for various AI applications.
+## API Reference
 
-## Features
+### `get_chain_info(chain_identifier: Union[int, str]) -> ChainInfo`
 
-- Store and retrieve chains
-- Organize chains by categories and tags
-- Easy integration with existing AI projects
-- JSON-based storage for flexibility and portability
+Retrieves chain information based on the provided identifier.
 
-## Installation
+- `chain_identifier`: Can be an integer (chain ID) or a string (chain name or alias)
+- Returns a `ChainInfo` object containing chain details
+- Raises `ChainNotFoundError` if the chain is not found
 
-You can install Chain Index using pip:
+### `ChainInfo`
+
+A Pydantic model representing chain information. Key attributes include:
+
+- `name`: Chain name
+- `chainId`: Chain ID
+- `nativeCurrency`: Native currency details (name, symbol, decimals)
+- `rpc`: List of RPC URLs
+- `explorers`: List of block explorers
+
+## Development
+
+To set up the development environment:
+
+1. Clone the repository
+2. Install development dependencies: `pip install -e ".[dev]"`
+3. Run tests: `pytest`
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+This project uses data from the [chainid.network](https://chainid.network/) project, which provides a comprehensive list of EVM-compatible chains.
+
+## Support
+
+If you encounter any issues or have questions, please file an issue on the GitHub repository.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes to this project.
+
+## Authors
+
+- gmatrix - Initial work and maintenance
+
+## Disclaimer
+
+This package is provided as-is, and while we strive for accuracy, we cannot guarantee the correctness of all chain information. Users should verify critical information independently.

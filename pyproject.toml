@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chain-index"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python library for managing and organizing AI language model chains"
 readme = "README.md"
 authors = [{ name = "gmatrix", email = "gmatrixuniverse@gmail.com" }]
@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
 ]
-keywords = ["ai", "language-model", "chain", "index"]
+keywords = ["web3", "ethereum", "blockchain", "evm"]
 dependencies = [
     "pydantic >= 1.8.0",
     "typing-extensions >= 3.7.4",
