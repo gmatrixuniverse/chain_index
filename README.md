@@ -16,6 +16,7 @@ A Pydantic model representing chain information. Key attributes include:
 - `name`: Chain name
 - `chainId`: Chain ID
 - `nativeCurrency`: Native currency details (name, symbol, decimals)
+- `wrapperNativeCurrency`: Wrapper native currency details (name, symbol, decimals, contract)
 - `rpc`: List of RPC URLs
 - `explorers`: List of block explorers
 

@@ -10,14 +10,21 @@ print(f"chainindex location: {chain_index.__file__}")
 from chain_index import get_chain_info, ChainNotFoundError
 
 def print_chain_info(chain):
-    print(f"Chain Name: {chain.name}")
-    print(f"Chain ID: {chain.chainId}")
-    print(f"Native Currency: {chain.nativeCurrency}")
-    print(f"RPC URLs: {chain.rpc}")
-    print(f"Block Explorer: {chain.explorers[0].url if chain.explorers else 'N/A'}")
-    print(f"ENS Registry: {chain.ens or 'N/A'}")
-    print(f"Aliases: {chain.shortName}")
-    print("-" * 50)
+    print(chain)
+    # print(f"Chain Name: {chain.name}")
+    # print(f"Chain ID: {chain.chainId}")
+    # print(f"Native Currency: {chain.nativeCurrency}")
+    
+    # # Check if wrapperNativeCurrency attribute exists
+    # if hasattr(chain, 'wrapperNativeCurrency'):
+    #     print(f"Wrapper Native Currency: {chain.wrapperNativeCurrency or 'N/A'}")
+    
+    # print(f"RPC URLs: {', '.join(chain.rpc)}")
+    # print(f"Explorer: {chain.explorers[0].url if chain.explorers else 'N/A'}")
+    # print(f"Block Explorer: {chain.explorers[0].url if chain.explorers else 'N/A'}")
+    # print(f"ENS Registry: {chain.ens or 'N/A'}")
+    # print(f"Aliases: {chain.shortName}")
+    # print("-" * 50)
 
 def main():
     # Example 1: Get chain info by ID

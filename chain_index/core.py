@@ -53,6 +53,7 @@ def get_chain_info(chain_identifier: Union[int, str]) -> ChainInfo:
         if isinstance(chain_identifier, int):
             if chain_identifier == chain['chainId']:
                 logger.debug(f"Found chain by ID: {chain_identifier}")
+                print(chain)
                 return ChainInfo(**chain)
         elif isinstance(chain_identifier, str):
             if (chain_identifier.lower() == chain['name'].lower() or

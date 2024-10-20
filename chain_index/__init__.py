@@ -3,7 +3,7 @@ from .exceptions import ChainNotFoundError
 
 __all__ = ["get_chain_info", "ChainInfo", "ChainNotFoundError"]
 
-__version__ = '0.1.0'
+__version__ = '0.1.3'
 __author__ = 'gmatrix'
 __license__ = 'MIT'
 
@@ -25,5 +25,5 @@ Quick example:
     except ChainNotFoundError as e:
         print(f"Error: {e}")
 
-For more information, visit: https://github.com/yourusername/chain-index
+For more information, visit: https://github.com/gmatrixuniverse/chain-index
 """
