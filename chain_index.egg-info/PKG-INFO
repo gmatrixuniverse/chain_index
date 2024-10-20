@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: chain-index
-Version: 0.1.1
+Version: 0.1.2
 Summary: A Python library for managing and organizing AI language model chains
 Author-email: gmatrix <gmatrixuniverse@gmail.com>
 License: MIT License
@@ -25,7 +25,7 @@ License: MIT License
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
         SOFTWARE.
         
-Project-URL: Homepage, https://github.com/yourusername/chain-index
+Project-URL: Homepage, https://github.com/gmatrixuniverse/chain_index
 Keywords: web3,ethereum,blockchain,evm
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python
