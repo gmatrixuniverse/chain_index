@@ -13,6 +13,12 @@ class NativeCurrency(BaseModel):
     symbol: str
     decimals: int
 
+class WrapperNativeCurrency(BaseModel):
+    name: str
+    symbol: str
+    decimals: int
+    contract: str
+
 class Explorer(BaseModel):
     name: str
     url: str
@@ -26,6 +32,7 @@ class ChainInfo(BaseModel):
     rpc: list[str] = []
     faucets: list[str] = []
     nativeCurrency: NativeCurrency
+    wrapperNativeCurrency: Optional[WrapperNativeCurrency] = None
     infoURL: Optional[str] = None
     shortName: str
     icon: Optional[str] = None
