@@ -3,7 +3,7 @@ from .exceptions import ChainNotFoundError
 
 __all__ = ["get_chain_info", "ChainInfo", "ChainNotFoundError"]
 
-__version__ = '0.1.3'
+__version__ = '0.1.5'
 __author__ = 'gmatrix'
 __license__ = 'MIT'
 

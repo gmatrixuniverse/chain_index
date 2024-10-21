@@ -49,23 +49,23 @@ def load_chains():
 CHAINS = load_chains()
 
 def get_chain_info(chain_identifier: Union[int, str]) -> ChainInfo:
-    logger.debug(f"Searching for chain: {chain_identifier}")
+    # logger.debug(f"Searching for chain: {chain_identifier}")
     for chain in CHAINS:
         if isinstance(chain_identifier, (int, np.integer)):
             if chain_identifier == chain['chainId']:
-                logger.debug(f"Found chain by ID: {chain_identifier}")
+                # logger.debug(f"Found chain by ID: {chain_identifier}")
                 return ChainInfo(**chain)
         elif isinstance(chain_identifier, str):
             if (chain_identifier.lower() == chain['name'].lower() or
                 chain_identifier.lower() in [alias.lower() for alias in chain.get('alias', [])] or
                 chain_identifier.lower() == chain.get('shortName', '').lower()):
-                logger.debug(f"Found chain by name or alias: {chain_identifier}")
+                # logger.debug(f"Found chain by name or alias: {chain_identifier}")
                 return ChainInfo(**chain)
             try:
                 if int(chain_identifier) == chain['chainId']:
-                    logger.debug(f"Found chain by ID (string): {chain_identifier}")
+                    # logger.debug(f"Found chain by ID (string): {chain_identifier}")
                     return ChainInfo(**chain)
             except ValueError:
                 pass
-    logger.debug(f"Chain not found: {chain_identifier}")
+    # logger.debug(f"Chain not found: {chain_identifier}")
     raise ChainNotFoundError(f"Chain not found: {chain_identifier}")
