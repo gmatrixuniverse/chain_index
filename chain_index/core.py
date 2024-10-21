@@ -4,6 +4,7 @@ import logging
 from typing import Union, Optional
 from pydantic import BaseModel, Field
 from .exceptions import ChainNotFoundError
+import numpy as np
 
 logging.basicConfig(level=logging.DEBUG)  # Change to DEBUG level
 logger = logging.getLogger(__name__)
@@ -50,10 +51,9 @@ CHAINS = load_chains()
 def get_chain_info(chain_identifier: Union[int, str]) -> ChainInfo:
     logger.debug(f"Searching for chain: {chain_identifier}")
     for chain in CHAINS:
-        if isinstance(chain_identifier, int):
+        if isinstance(chain_identifier, (int, np.integer)):
             if chain_identifier == chain['chainId']:
                 logger.debug(f"Found chain by ID: {chain_identifier}")
-                print(chain)
                 return ChainInfo(**chain)
         elif isinstance(chain_identifier, str):
             if (chain_identifier.lower() == chain['name'].lower() or
