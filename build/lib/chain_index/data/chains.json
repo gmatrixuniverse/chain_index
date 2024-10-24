@@ -1,5 +1,61 @@
 [
     {
+        "name": "Bitcoin",
+        "chain": "BTC",
+        "rpc": [],
+        "faucets": [],
+        "nativeCurrency": {
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "decimals": 8
+        },
+        "infoURL": "https://bitcoin.org",
+        "shortName": "btc",
+        "chainId": 0,
+        "networkId": 0,
+        "icon": "bitcoin",
+        "explorers": [
+            {
+                "name": "blockchain.info",
+                "url": "https://blockchain.info",
+                "standard": "none"
+            }
+        ],
+        "alias": [
+            "BTC",
+            "Bitcoin"
+        ]
+    },
+    {
+        "name": "Solana",
+        "chain": "SOL",
+        "rpc": [
+            "https://api.mainnet-beta.solana.com"
+        ],
+        "faucets": [],
+        "nativeCurrency": {
+            "name": "Solana",
+            "symbol": "SOL",
+            "decimals": 9
+        },
+        "infoURL": "https://solana.com",
+        "shortName": "sol",
+        "chainId": -1,
+        "networkId": -1,
+        "icon": "solana",
+        "explorers": [
+            {
+                "name": "Solana Explorer",
+                "url": "https://explorer.solana.com",
+                "standard": "none"
+            }
+        ],
+        "alias": [
+            "SOL",
+            "Solana"
+        ]
+    },
+    {
         "name": "Ethereum Mainnet",
         "chain": "ETH",
         "icon": "ethereum",
