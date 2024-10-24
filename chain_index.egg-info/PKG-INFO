@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: chain-index
-Version: 0.1.4
+Version: 0.1.5
 Summary: A Python library for managing and organizing AI language model chains
 Author-email: gmatrix <gmatrixuniverse@gmail.com>
 License: MIT License
