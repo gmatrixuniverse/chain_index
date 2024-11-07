@@ -62,7 +62,9 @@ def get_chain_info(chain_identifier: Union[int, str]) -> ChainInfo:
                 # logger.debug(f"Found chain by name or alias: {chain_identifier}")
                 return ChainInfo(**chain)
             try:
-                if int(chain_identifier) == chain['chainId']:
+                # Handle both decimal and hexadecimal string representations
+                chain_id = int(chain_identifier, 16 if chain_identifier.lower().startswith('0x') else 10)
+                if chain_id == chain['chainId']:
                     # logger.debug(f"Found chain by ID (string): {chain_identifier}")
                     return ChainInfo(**chain)
             except ValueError:
