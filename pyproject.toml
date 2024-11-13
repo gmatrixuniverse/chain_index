@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chain-index"
-version = "0.1.9"
+version = "0.2.1"
 description = "A Python library for managing and organizing AI language model chains"
 readme = "README.md"
 authors = [{ name = "gmatrix", email = "gmatrixuniverse@gmail.com" }]

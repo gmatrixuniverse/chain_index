@@ -80,7 +80,7 @@ class ChainTokens:
 
     def get_all_tokens(self) -> dict[str, TokenInfo]:
         """Get all tokens including native, wrapped native, and common tokens"""
-        all_tokens = {self.native_token.symbol: self.native_token}
+        all_tokens = {}
         if self.wrapped_native:
             all_tokens[self.wrapped_native.symbol] = self.wrapped_native
         all_tokens.update(self.common_tokens)
