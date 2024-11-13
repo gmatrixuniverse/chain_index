@@ -1,4 +1,25 @@
-from .chain_info import ChainInfo, get_chain_info
+from chain_index import (
+    get_chain_info, 
+    ChainInfo, 
+    TokenInfo,
+    ChainTokens,
+    get_token_info,
+    get_chain_tokens,
+    get_all_chain_tokens,
+    ChainNotFoundError,
+    TokenNotFoundError
+)
 
-__all__ = ['ChainInfo', 'get_chain_info']
-__version__ = '0.1.0'
+__all__ = [
+    'ChainInfo',
+    'TokenInfo', 
+    'ChainTokens',
+    'get_chain_info',
+    'get_token_info',
+    'get_chain_tokens',
+    'get_all_chain_tokens',
+    'ChainNotFoundError',
+    'TokenNotFoundError'
+]
+
+__version__ = '0.1.8'

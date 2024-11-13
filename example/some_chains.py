@@ -7,7 +7,7 @@ sys.path.append(parent_dir)
 
 import chain_index
 print(f"chainindex location: {chain_index.__file__}")
-from chain_index import get_chain_info, ChainNotFoundError
+from chain_index import get_chain_info, ChainNotFoundError, get_token_info, get_chain_tokens, get_all_chain_tokens
 
 def print_chain_info(chain):
     print(chain)
@@ -25,6 +25,44 @@ def print_chain_info(chain):
     # print(f"ENS Registry: {chain.ens or 'N/A'}")
     # print(f"Aliases: {chain.shortName}")
     # print("-" * 50)
+
+def print_chain_tokens(chain_id):
+    try:
+        tokens = get_chain_tokens(chain_id)
+        print(f"\nCommon tokens on chain {chain_id}:")
+        for symbol, token in tokens.items():
+            print(f"- {token.name} ({symbol})")
+            print(f"  Contract: {token.contract}")
+            print(f"  Decimals: {token.decimals}")
+    except ChainNotFoundError as e:
+        print(f"Error: {e}")
+
+def print_all_chain_tokens(chain_id):
+    try:
+        chain_tokens = get_all_chain_tokens(chain_id)
+        print(f"\nAll tokens on chain {chain_id} ({chain_tokens.chain.name}):")
+        
+        # Print native token
+        print("\nNative token:")
+        print(f"- {chain_tokens.native_token.name} ({chain_tokens.native_token.symbol})")
+        print(f"  Decimals: {chain_tokens.native_token.decimals}")
+        
+        # Print wrapped native token if exists
+        if chain_tokens.wrapped_native:
+            print("\nWrapped native token:")
+            print(f"- {chain_tokens.wrapped_native.name} ({chain_tokens.wrapped_native.symbol})")
+            print(f"  Contract: {chain_tokens.wrapped_native.contract}")
+            print(f"  Decimals: {chain_tokens.wrapped_native.decimals}")
+        
+        # Print common tokens
+        print("\nCommon tokens:")
+        for symbol, token in chain_tokens.common_tokens.items():
+            print(f"- {token.name} ({symbol})")
+            print(f"  Contract: {token.contract}")
+            print(f"  Decimals: {token.decimals}")
+            
+    except ChainNotFoundError as e:
+        print(f"Error: {e}")
 
 def main():
     # Example 1: Get chain info by ID
@@ -65,6 +103,32 @@ def main():
         print(f"Ethereum gas token: {eth_gas.name} ({eth_gas.symbol})")
         print(f"Optimism gas token: {op_gas.name} ({op_gas.symbol})")
     except ChainNotFoundError as e:
+        print(f"Error: {e}")
+
+    # Example 6: Get token information
+    print("\nExample 6: Get token information")
+    try:
+        usdt = get_token_info(1, "USDT")
+        print(f"USDT contract on Ethereum: {usdt.contract}")
+        
+        # Print all common tokens on Ethereum
+        print_chain_tokens(1)
+    except (ChainNotFoundError, TokenNotFoundError) as e:
+        print(f"Error: {e}")
+
+    # Example 7: Get all tokens on a chain
+    print("\nExample 7: Get all tokens on Ethereum")
+    print_all_chain_tokens(1)
+    
+    # Example 8: Get specific token including native and wrapped
+    print("\nExample 8: Get specific tokens")
+    try:
+        eth_tokens = get_all_chain_tokens(1)
+        eth = eth_tokens.get_token("ETH")
+        weth = eth_tokens.get_token("WETH")
+        print(f"ETH contract: {eth.contract}")
+        print(f"WETH contract: {weth.contract}")
+    except (ChainNotFoundError, TokenNotFoundError) as e:
         print(f"Error: {e}")
 
 if __name__ == "__main__":
