@@ -31,6 +31,7 @@ class TokenInfo(BaseModel):
     decimals: int
     contract: str
     chain_id: int
+    price_usd: Optional[float] = None
 
 class ChainInfo(BaseModel):
     name: str
@@ -61,7 +62,8 @@ class ChainTokens:
             symbol=self.chain.nativeCurrency.symbol,
             decimals=self.chain.nativeCurrency.decimals,
             contract="0x0000000000000000000000000000000000000000",  # Native token uses zero address
-            chain_id=chain_id
+            chain_id=chain_id,
+            price_usd=0
         )
         
         # Wrapped native token if exists
@@ -72,7 +74,8 @@ class ChainTokens:
                 symbol=self.chain.wrapperNativeCurrency.symbol,
                 decimals=self.chain.wrapperNativeCurrency.decimals,
                 contract=self.chain.wrapperNativeCurrency.contract,
-                chain_id=chain_id
+                chain_id=chain_id,
+                price_usd=0
             )
         
         # Common tokens
